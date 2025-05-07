@@ -9,7 +9,6 @@ const UsersList = () => {
             const res = await fetch(`https://jsonplaceholder.typicode.com/users`)
             const json = await res.json()
             setUsers(json)
-            console.log(json)
         }
         fetchUsers();
     }, []);

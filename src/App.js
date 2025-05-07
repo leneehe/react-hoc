@@ -1,4 +1,5 @@
 import './App.css';
+import TodoList from './TodoList';
 import UsersList from './UsersList';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
       <h2>Higher Order Component</h2>
       <div className='section'>
         <UsersList />
+        <TodoList />
       </div>
     </div>
   );
