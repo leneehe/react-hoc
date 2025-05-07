@@ -1,14 +1,14 @@
 import './App.css';
-import TodoList from './TodoList';
-import UsersList from './UsersList';
+import SearchTodos from './TodoList';
+import SearchUsers from './UsersList';
 
 function App() {
   return (
     <div className="App">
       <h2>Higher Order Component</h2>
       <div className='section'>
-        <UsersList />
-        <TodoList />
+        <SearchUsers />
+        <SearchTodos />
       </div>
     </div>
   );

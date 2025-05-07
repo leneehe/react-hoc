@@ -1,22 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import HOC from './HOC'
 
-const TodoList = () => {
-    const [todos, setTodos] = useState([]);
-    const [term, setTerm] = useState("");
-
-    useEffect(() => {
-        const fetchTodos = async() => {
-            const res = await fetch(`https://jsonplaceholder.typicode.com/todos`)
-            const json = await res.json()
-            setTodos(json)
-        }
-        fetchTodos();
-    }, [])
-
-
-    let filterTodos = todos.slice(0, 10).filter(({title}) => {
-        return title.toLowerCase().indexOf(term.toLowerCase()) >= 0;
-    }).map((todo) => {
+const TodoList = ({data}) => {
+    let renderTodos = data.map((todo) => {
         return (
             <div key={todo.id}>
                 <p>
@@ -25,14 +11,14 @@ const TodoList = () => {
             </div>
         )
     })
+
   return (
     <div>
-        <h2>Todos</h2>
-        <input type='text' value={term} placeholder='Search name' onChange={(e) => setTerm(e.target.value)} />
-      {filterTodos}
-
+      {renderTodos}
     </div>
   )
 }
 
-export default TodoList
+const SearchTodos = HOC(TodoList, "todos")
+
+export default SearchTodos
